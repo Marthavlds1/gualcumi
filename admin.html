@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER ADMIN -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI // ADMIN</a>
+    <a href="index.html" class="cart-btn">VOLVER A LA TIENDA</a>
+  </header>
+
+  <main class="admin-container">
+    <!-- PANTALLA DE LOGIN PRIVADO -->
+    <div id="admin-login-screen" class="admin-login-box">
+      <h2>ACCESO ADMINISTRADOR</h2>
+      <p>Ingresa el PIN de seguridad para consultar la base de datos de clientes y pedidos.</p>
+      <form id="admin-login-form">
+        <input type="password" id="admin-pin" placeholder="PIN DE ACCESO" required>
+        <button type="submit" class="btn-glitch">INGRESAR</button>
+      </form>
+      <p id="login-error" class="error-msg" style="display:none;">PIN Incorrecto</p>
+    </div>
+
+    <!-- PANEL DE BASE DE DATOS (OCULTO POR DEFECTO) -->
+    <div id="admin-dashboard" style="display: none;">
+      <div class="admin-header">
+        <h1>BASE DE DATOS DE PEDIDOS</h1>
+        <button id="logout-btn" class="cart-btn">CERRAR SESIÓN</button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID Pedido</th>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Email / Teléfono</th>
+              <th>Dirección de Envío</th>
+              <th>Productos</th>
+              <th>Total</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody id="orders-db-body">
+            <!-- AQUÍ SE CARGARÁN DINÁMICAMENTE LOS PEDIDOS DESDE LA BASE DE DATOS -->
+            <tr>
+              <td>#GUAL-001</td>
+              <td>18/08/2026</td>
+              <td>Cliente de Prueba</td>
+              <td>cliente@test.com / +52 5512345678</td>
+              <td>Av. Insurgentes Sur 123, CDMX</td>
+              <td>1x Oversized Pump Cover (L)</td>
+              <td>$45.00 USD</td>
+              <td><span class="status-badge pending">PENDIENTE PAGO</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

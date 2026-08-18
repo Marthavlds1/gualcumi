@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. LÓGICA DEL MENÚ OVERLAY
+  // 1. MENÚ HAMBURGUESA / OVERLAY
   const burgerToggle = document.getElementById('burger-toggle');
   const closeToggle = document.getElementById('close-toggle');
   const navOverlay = document.getElementById('nav-overlay');
@@ -11,7 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     closeToggle.addEventListener('click', () => navOverlay.classList.remove('open'));
   }
 
-  // 2. LÓGICA DEL CARRUSEL EN PRODUCTOS
+  // Cerrar menú con ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOverlay && navOverlay.classList.contains('open')) {
+      navOverlay.classList.remove('open');
+    }
+  });
+
+  // 2. CARRUSEL EN PRODUCTOS (HOMBRE Y MUJER)
   const carousels = document.querySelectorAll('.carousel');
   carousels.forEach(carousel => {
     const slides = carousel.querySelectorAll('.carousel-slide');
@@ -40,11 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. CONTADOR BÁSICO DE CARRITO (SIMULACIÓN)
+  // 3. CONTADOR Y ACCIÓN SIMPLE DE CARRITO
   let cartCount = 0;
   const cartCountEl = document.getElementById('cart-count');
   const addButtons = document.querySelectorAll('.add-to-cart');
+  const cartBtn = document.querySelector('.cart-btn');
 
+  // Añadir productos
   addButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       cartCount++;
@@ -55,51 +64,48 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1500);
     });
   });
-});
 
-// 4. LÓGICA DE ENVÍO DE FORMULARIO DE PEDIDOS
-  const orderForm = document.getElementById('order-form');
-
-  if (orderForm) {
-    orderForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const message = document.getElementById('message').value;
-
-      // A) PREPARACIÓN PARA BASE DE DATOS (Backend futuro)
-      const orderData = {
-        cliente: name,
-        email: email,
-        telefono: phone,
-        pedido: message,
-        fecha: new Date().toISOString()
-      };
-
-      console.log('Datos listos para enviar a la Base de Datos:', orderData);
-      
-      /* 
-         NOTA DE CONEXIÓN A BASE DE DATOS FUTURA:
-         Aquí conectaremos Supabase / Firebase más adelante con algo como:
-         
-         await fetch('https://tu-api.supabase.co/rest/v1/pedidos', {
-           method: 'POST',
-           headers: { 'Content-Type': 'application/json' },
-           body: JSON.stringify(orderData)
-         });
-      */
-
-      // B) REDIRECCIÓN A WHATSAPP (Solución inmediata)
-      const whatsappNumber = "525500000000"; // Reemplaza con tu número con clave de país
-      const text = `*NUEVO PEDIDO GUALCUMI*%0A%0A*Nombre:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Tel:* ${encodeURIComponent(phone)}%0A*Detalles:* ${encodeURIComponent(message)}`;
-      
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
-      
-      // Abrir WhatsApp con la orden formateada
-      window.open(whatsappUrl, '_blank');
-
-      orderForm.reset();
+  // Clic en el botón CARRITO del Navbar (Redirige a contacto/WhatsApp si hay items)
+  if (cartBtn && !window.location.pathname.includes('admin')) {
+    cartBtn.addEventListener('click', () => {
+      if (cartCount === 0) {
+        alert("Tu carrito está vacío. Agrega prendas para realizar tu pedido.");
+      } else {
+        // Redirige directamente a la página de contacto para finalizar
+        window.location.href = "contacto.html";
+      }
     });
   }
+
+  // 4. LOGIN PANEL ADMINISTRADOR (PIN POR DEFECTO: 1234)
+  const adminForm = document.getElementById('admin-login-form');
+  const adminLoginScreen = document.getElementById('admin-login-screen');
+  const adminDashboard = document.getElementById('admin-dashboard');
+  const loginError = document.getElementById('login-error');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  const SECRET_PIN = "1234"; // Puedes cambiar este PIN cuando gustes
+
+  if (adminForm) {
+    adminForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const pinInput = document.getElementById('admin-pin').value;
+
+      if (pinInput === SECRET_PIN) {
+        adminLoginScreen.style.display = 'none';
+        adminDashboard.style.display = 'block';
+        loginError.style.display = 'none';
+      } else {
+        loginError.style.display = 'block';
+      }
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      adminDashboard.style.display = 'none';
+      adminLoginScreen.style.display = 'block';
+      document.getElementById('admin-pin').value = '';
+    });
+  }
+});
