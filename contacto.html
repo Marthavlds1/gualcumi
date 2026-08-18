@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Contacto y Pedidos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI</a>
+    <div class="nav-actions">
+      <button class="cart-btn" aria-label="Carrito de compras">
+        CARRITO (<span id="cart-count">0</span>)
+      </button>
+      <button class="burger-menu" id="burger-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-header">
+      <span class="overlay-brand">GUALCUMI</span>
+      <button class="close-menu" id="close-toggle">&times;</button>
+    </div>
+    <nav class="overlay-nav">
+      <a href="index.html" class="nav-link">INICIO</a>
+      <a href="hombre.html" class="nav-link">HOMBRE</a>
+      <a href="mujer.html" class="nav-link">MUJER</a>
+      <a href="contacto.html" class="nav-link active">CONTACTO</a>
+    </nav>
+    <div class="overlay-footer">
+      <p>RAW & UNFILTERED GYMWEAR</p>
+    </div>
+  </div>
+
+  <!-- CONTENIDO DE CONTACTO -->
+  <main class="contact-container">
+    <div class="contact-header">
+      <span class="tagline">// DIRECT LINE</span>
+      <h1 class="contact-title">CONTACTO / ORDER</h1>
+      <p class="contact-subtitle">Llena tus datos para confirmar tu pedido o resolver dudas. Te responderemos de inmediato.</p>
+    </div>
+
+    <form class="underground-form" id="order-form">
+      <div class="form-group">
+        <label for="name">NOMBRE COMPLETO *</label>
+        <input type="text" id="name" name="name" required placeholder="TU NOMBRE">
+      </div>
+
+      <div class="form-group">
+        <label for="email">CORREO ELECTRÓNICO *</label>
+        <input type="email" id="email" name="email" required placeholder="TU@EMAIL.COM">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">TELÉFONO / WHATSAPP *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+52 000 000 0000">
+      </div>
+
+      <div class="form-group">
+        <label for="message">DETALLES DEL PEDIDO / MENSAJE *</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Ej. Quiero comprar la Oversized Pump Cover en Talla L."></textarea>
+      </div>
+
+      <button type="submit" class="btn-glitch form-submit-btn">ENVIAR PEDIDO AHORA</button>
+    </form>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

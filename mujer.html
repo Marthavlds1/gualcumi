@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Mujer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI</a>
+    <div class="nav-actions">
+      <button class="cart-btn" aria-label="Carrito de compras">
+        CARRITO (<span id="cart-count">0</span>)
+      </button>
+      <button class="burger-menu" id="burger-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-header">
+      <span class="overlay-brand">GUALCUMI</span>
+      <button class="close-menu" id="close-toggle">&times;</button>
+    </div>
+    <nav class="overlay-nav">
+      <a href="index.html" class="nav-link">INICIO</a>
+      <a href="hombre.html" class="nav-link">HOMBRE</a>
+      <a href="mujer.html" class="nav-link active">MUJER</a>
+      <a href="contacto.html" class="nav-link">CONTACTO</a>
+    </nav>
+    <div class="overlay-footer">
+      <p>RAW & UNFILTERED GYMWEAR</p>
+    </div>
+  </div>
+
+  <!-- CONTENIDO DE CATÁLOGO -->
+  <main class="catalog-container">
+    <div class="catalog-header">
+      <span class="tagline">// COLLECTION</span>
+      <h1 class="catalog-title">WOMENSWEAR</h1>
+    </div>
+
+    <!-- PRODUCTO 1 CON CARRUSEL -->
+    <div class="product-grid">
+      <article class="product-card" data-id="m1" data-name="Seamless Ribbed Bra" data-price="40">
+        <div class="carousel" id="carousel-m1">
+          <button class="carousel-btn prev">&lt;</button>
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <div class="img-placeholder">FOTO 1 - SEAMLESS BRA</div>
+            </div>
+            <div class="carousel-slide">
+              <div class="img-placeholder">FOTO 2 - ESPALDA CROSS</div>
+            </div>
+          </div>
+          <button class="carousel-btn next">&gt;</button>
+        </div>
+        <div class="product-info">
+          <h3>Seamless Ribbed Bra</h3>
+          <p class="price">$40.00 USD</p>
+          <button class="btn-glitch add-to-cart">AÑADIR AL PEDIDO</button>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 2 CON CARRUSEL -->
+      <article class="product-card" data-id="m2" data-name="High-Waist Scrunch Shorts" data-price="42">
+        <div class="carousel" id="carousel-m2">
+          <button class="carousel-btn prev">&lt;</button>
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <div class="img-placeholder">FOTO 1 - SCRUNCH SHORTS</div>
+            </div>
+            <div class="carousel-slide">
+              <div class="img-placeholder">FOTO 2 - VISTA LATERAL</div>
+            </div>
+          </div>
+          <button class="carousel-btn next">&gt;</button>
+        </div>
+        <div class="product-info">
+          <h3>High-Waist Scrunch Shorts</h3>
+          <p class="price">$42.00 USD</p>
+          <button class="btn-glitch add-to-cart">AÑADIR AL PEDIDO</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

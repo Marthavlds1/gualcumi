@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Hombre</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI</a>
+    <div class="nav-actions">
+      <button class="cart-btn" aria-label="Carrito de compras">
+        CARRITO (<span id="cart-count">0</span>)
+      </button>
+      <button class="burger-menu" id="burger-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-header">
+      <span class="overlay-brand">GUALCUMI</span>
+      <button class="close-menu" id="close-toggle">&times;</button>
+    </div>
+    <nav class="overlay-nav">
+      <a href="index.html" class="nav-link">INICIO</a>
+      <a href="hombre.html" class="nav-link active">HOMBRE</a>
+      <a href="mujer.html" class="nav-link">MUJER</a>
+      <a href="contacto.html" class="nav-link">CONTACTO</a>
+    </nav>
+    <div class="overlay-footer">
+      <p>RAW & UNFILTERED GYMWEAR</p>
+    </div>
+  </div>
+
+  <!-- CONTENIDO DE CATÁLOGO -->
+  <main class="catalog-container">
+    <div class="catalog-header">
+      <span class="tagline">// COLLECTION</span>
+      <h1 class="catalog-title">MENSWEAR</h1>
+    </div>
+
+    <!-- PRODUCTO 1 CON CARRUSEL -->
+    <div class="product-grid">
+      <article class="product-card" data-id="h1" data-name="Oversized Pump Cover" data-price="45">
+        <div class="carousel" id="carousel-h1">
+          <button class="carousel-btn prev">&lt;</button>
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <div class="img-placeholder">FOTO 1 - OVERSIZED PUMP COVER</div>
+            </div>
+            <div class="carousel-slide">
+              <div class="img-placeholder">FOTO 2 - DETALLE ESPALDA</div>
+            </div>
+            <div class="carousel-slide">
+              <div class="img-placeholder">FOTO 3 - DETALLE TELA</div>
+            </div>
+          </div>
+          <button class="carousel-btn next">&gt;</button>
+        </div>
+        <div class="product-info">
+          <h3>Oversized Pump Cover</h3>
+          <p class="price">$45.00 USD</p>
+          <button class="btn-glitch add-to-cart">AÑADIR AL PEDIDO</button>
+        </div>
+      </article>
+
+      <!-- PRODUCTO 2 CON CARRUSEL -->
+      <article class="product-card" data-id="h2" data-name="Raw Edge Tank Top" data-price="35">
+        <div class="carousel" id="carousel-h2">
+          <button class="carousel-btn prev">&lt;</button>
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <div class="img-placeholder">FOTO 1 - RAW EDGE TANK</div>
+            </div>
+            <div class="carousel-slide">
+              <div class="img-placeholder">FOTO 2 - CORTE LATERAL</div>
+            </div>
+          </div>
+          <button class="carousel-btn next">&gt;</button>
+        </div>
+        <div class="product-info">
+          <h3>Raw Edge Tank Top</h3>
+          <p class="price">$35.00 USD</p>
+          <button class="btn-glitch add-to-cart">AÑADIR AL PEDIDO</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

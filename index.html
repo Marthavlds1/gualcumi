@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Underground Gymwear</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER / NAVEGACIÓN -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI</a>
+    
+    <div class="nav-actions">
+      <button class="cart-btn" aria-label="Carrito de compras">
+        CARRITO (<span id="cart-count">0</span>)
+      </button>
+      <button class="burger-menu" id="burger-toggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ DESLIZABLE (OVERLAY) -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-header">
+      <span class="overlay-brand">GUALCUMI</span>
+      <button class="close-menu" id="close-toggle" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <nav class="overlay-nav">
+      <a href="index.html" class="nav-link active">INICIO</a>
+      <a href="hombre.html" class="nav-link">HOMBRE</a>
+      <a href="mujer.html" class="nav-link">MUJER</a>
+      <a href="contacto.html" class="nav-link">CONTACTO</a>
+    </nav>
+    <div class="overlay-footer">
+      <p>RAW & UNFILTERED GYMWEAR</p>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-overlay-bg"></div>
+    <div class="hero-content">
+      <span class="tagline">// DROP 001 — AVAILABLE NOW</span>
+      <h1 class="hero-title">NO LIMITS.<br>NO RULES.</h1>
+      <p class="hero-subtitle">Ropa deportiva underground diseñada para rendimiento sin filtros.</p>
+      <div class="hero-buttons">
+        <a href="hombre.html" class="btn-glitch">VER HOMBRE</a>
+        <a href="mujer.html" class="btn-glitch btn-secondary">VER MUJER</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
