@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Detalle de Prenda</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI</a>
+    <div class="nav-actions">
+      <button class="cart-btn" aria-label="Carrito de compras">
+        CARRITO (<span id="cart-count">0</span>)
+      </button>
+      <button class="burger-menu" id="burger-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ OVERLAY -->
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="overlay-header">
+      <span class="overlay-brand">GUALCUMI</span>
+      <button class="close-menu" id="close-toggle">&times;</button>
+    </div>
+    <nav class="overlay-nav">
+      <a href="index.html" class="nav-link">INICIO</a>
+      <a href="hombre.html" class="nav-link">HOMBRE</a>
+      <a href="mujer.html" class="nav-link">MUJER</a>
+      <a href="contacto.html" class="nav-link">CONTACTO</a>
+    </nav>
+  </div>
+
+  <main class="product-detail-container">
+    <!-- BOTÓN FLECHA PARA REGRESAR -->
+    <a href="javascript:history.back()" class="back-link">&larr; VOLVER AL CATÁLOGO</a>
+
+    <div class="detail-grid">
+      <!-- CARRUSEL DE FOTOS DE LA PRENDA -->
+      <div class="carousel product-detail-carousel">
+        <button class="carousel-btn prev" type="button">&lt;</button>
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <div class="img-placeholder">FOTO 1 - VISTA PRINCIPAL</div>
+          </div>
+          <div class="carousel-slide">
+            <div class="img-placeholder">FOTO 2 - DETALLE TELA</div>
+          </div>
+        </div>
+        <button class="carousel-btn next" type="button">&gt;</button>
+      </div>
+
+      <!-- INFORMACIÓN Y SELECCIÓN DE PRENDA -->
+      <div class="product-detail-info">
+        <span class="tagline">// GUALCUMI DROP</span>
+        <h1 class="detail-title" id="product-title">PRENDA GUALCUMI</h1>
+        <p class="detail-price" id="product-price">$45.00 USD</p>
+
+        <!-- SELECCIÓN DE TALLA -->
+        <div class="option-group">
+          <label>SELECCIONA TALLA:</label>
+          <div class="size-selector">
+            <button type="button" class="size-btn">S</button>
+            <button type="button" class="size-btn active">M</button>
+            <button type="button" class="size-btn">L</button>
+            <button type="button" class="size-btn">XL</button>
+          </div>
+        </div>
+
+        <!-- SELECCIÓN DE CANTIDAD -->
+        <div class="option-group">
+          <label for="quantity">CANTIDAD:</label>
+          <input type="number" id="quantity" value="1" min="1" max="10" class="quantity-input">
+        </div>
+
+        <!-- BOTÓN DE AGREGAR AL CARRITO -->
+        <button type="button" class="btn-glitch add-to-cart-detail" id="add-detail-btn">AÑADIR AL CARRITO</button>
+
+        <!-- ESPECIFICACIONES -->
+        <div class="specs-box">
+          <h3>ESPECIFICACIONES DEL PRODUCTO</h3>
+          <ul>
+            <li>• Algodón pesado de alto gramaje (Heavyweight Cotton).</li>
+            <li>• Corte Oversized / Drop Shoulder fit.</li>
+            <li>• Estampa resistente a lavados intensos.</li>
+            <li>• Diseñado para máximo rango de movimiento en gimnasio.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

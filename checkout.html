@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUALCUMI | Checkout & Pago</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <a href="index.html" class="brand-logo">GUALCUMI</a>
+    <a href="index.html" class="cart-btn">&larr; VOLVER A LA TIENDA</a>
+  </header>
+
+  <main class="contact-container">
+    <div class="contact-header">
+      <span class="tagline">// FINALIZAR PEDIDO</span>
+      <h1 class="contact-title">CHECKOUT</h1>
+      <p class="contact-subtitle">Ingresa tus datos de entrega y método de pago para procesar la orden.</p>
+    </div>
+
+    <form class="underground-form" id="checkout-main-form">
+      <h3>1. INFORMACIÓN DEL COMPRADOR</h3>
+      <div class="form-group">
+        <label for="cust-fullname">NOMBRE COMPLETO *</label>
+        <input type="text" id="cust-fullname" required placeholder="TU NOMBRE Y APELLIDO">
+      </div>
+
+      <div class="form-group">
+        <label for="cust-email-check">CORREO ELECTRÓNICO *</label>
+        <input type="email" id="cust-email-check" required placeholder="TU@EMAIL.COM">
+      </div>
+
+      <div class="form-group">
+        <label for="cust-phone-check">TELÉFONO / WHATSAPP *</label>
+        <input type="tel" id="cust-phone-check" required placeholder="+52 000 000 0000">
+      </div>
+
+      <h3>2. FORMA DE ENTREGA</h3>
+      <div class="form-group">
+        <label for="shipping-method">MÉTODO DE ENVÍO *</label>
+        <select id="shipping-method" class="underground-select" required>
+          <option value="envio-domicilio">Envío a Domicilio (Nacional)</option>
+          <option value="punto-entrega">Punto de Entrega / Pick Up</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cust-address-check">DIRECCIÓN DE ENTREGA *</label>
+        <textarea id="cust-address-check" rows="3" required placeholder="Calle, Número, Colonia, Código Postal, Ciudad"></textarea>
+      </div>
+
+      <h3>3. FORMA DE PAGO</h3>
+      <div class="payment-options">
+        <label class="radio-label">
+          <input type="radio" name="payment_method" value="transferencia" checked>
+          <span>TRANSFERENCIA BANCARIA / SPEI</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="payment_method" value="tarjeta">
+          <span>TARJETA DE CRÉDITO / DÉBITO</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn-glitch form-submit-btn">CONFIRMAR Y PAGAR</button>
+    </form>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

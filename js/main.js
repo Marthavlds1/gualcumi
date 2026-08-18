@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. MENÚ HAMBURGUESA / OVERLAY
+  // 1. MENÚ OVERLAY
   const burgerToggle = document.getElementById('burger-toggle');
   const closeToggle = document.getElementById('close-toggle');
   const navOverlay = document.getElementById('nav-overlay');
@@ -11,14 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeToggle.addEventListener('click', () => navOverlay.classList.remove('open'));
   }
 
-  // Cerrar menú con ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navOverlay && navOverlay.classList.contains('open')) {
-      navOverlay.classList.remove('open');
-    }
-  });
-
-  // 2. CARRUSEL EN PRODUCTOS (HOMBRE Y MUJER)
+  // 2. CARRUSELES
   const carousels = document.querySelectorAll('.carousel');
   carousels.forEach(carousel => {
     const slides = carousel.querySelectorAll('.carousel-slide');
@@ -33,70 +26,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         currentIndex = (currentIndex + 1) % slides.length;
         showSlide(currentIndex);
       });
     }
 
     if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         showSlide(currentIndex);
       });
     }
   });
 
-  // 3. CONTADOR Y ACCIÓN SIMPLE DE CARRITO
-  let cartCount = 0;
-  const cartCountEl = document.getElementById('cart-count');
-  const addButtons = document.querySelectorAll('.add-to-cart');
+  // 3. REDIRECCIÓN BOTÓN CARRITO A CHECKOUT
   const cartBtn = document.querySelector('.cart-btn');
-
-  // Añadir productos
-  addButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      cartCount++;
-      if (cartCountEl) cartCountEl.textContent = cartCount;
-      btn.textContent = "AÑADIDO ✓";
-      setTimeout(() => {
-        btn.textContent = "AÑADIR AL PEDIDO";
-      }, 1500);
-    });
-  });
-
-  // Clic en el botón CARRITO del Navbar (Redirige a contacto/WhatsApp si hay items)
-  if (cartBtn && !window.location.pathname.includes('admin')) {
+  if (cartBtn && !window.location.pathname.includes('admin') && !window.location.pathname.includes('checkout')) {
     cartBtn.addEventListener('click', () => {
-      if (cartCount === 0) {
-        alert("Tu carrito está vacío. Agrega prendas para realizar tu pedido.");
-      } else {
-        // Redirige directamente a la página de contacto para finalizar
-        window.location.href = "contacto.html";
-      }
+      window.location.href = "checkout.html";
     });
   }
 
-  // 4. LOGIN PANEL ADMINISTRADOR (PIN POR DEFECTO: 1234)
+  // 4. SELECCIÓN DE TALLA EN DETALLE DE PRODUCTO
+  const sizeBtns = document.querySelectorAll('.size-btn');
+  sizeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sizeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // 5. LOGIN ADMIN
   const adminForm = document.getElementById('admin-login-form');
   const adminLoginScreen = document.getElementById('admin-login-screen');
   const adminDashboard = document.getElementById('admin-dashboard');
   const loginError = document.getElementById('login-error');
   const logoutBtn = document.getElementById('logout-btn');
 
-  const SECRET_PIN = "1234"; // Puedes cambiar este PIN cuando gustes
+  const SECRET_PIN = "1234";
 
   if (adminForm) {
     adminForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const pinInput = document.getElementById('admin-pin').value;
-
       if (pinInput === SECRET_PIN) {
         adminLoginScreen.style.display = 'none';
         adminDashboard.style.display = 'block';
-        loginError.style.display = 'none';
+        if (loginError) loginError.style.display = 'none';
       } else {
-        loginError.style.display = 'block';
+        if (loginError) loginError.style.display = 'block';
       }
     });
   }
